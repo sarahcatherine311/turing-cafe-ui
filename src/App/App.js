@@ -15,8 +15,23 @@ class App extends Component {
   componentDidMount() {
     fetchData()
     .then(data => this.setState({reservations: data}))
+    .catch(error => console.log(error))
   }
   
+  postReservation = (newReservation) => {
+    return fetch("http://localhost:3001/api/v1/reservations", {
+      method: "POST",
+      body: JSON.stringify(newReservation),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error))
+
+  }
+
   addReservation = (name, date, time, number, event) => {
     event.preventDefault()
     const newReservation = {
@@ -24,9 +39,12 @@ class App extends Component {
       time: time,
       name: name,
       date: date, 
-      number: number,
+      number: parseInt(number),
     }
-    this.setState({reservations: [...this.state.reservations, newReservation]})
+    this.postReservation(newReservation)
+    fetchData()
+      .then(data => this.setState({reservations: data}))
+      .catch(error => console.log(error))
     this.clearInputs()
   }
 
