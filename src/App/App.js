@@ -26,9 +26,15 @@ class App extends Component {
       date: date, 
       number: number,
     }
-    console.log(newReservation)
     this.setState({reservations: [...this.state.reservations, newReservation]})
+    this.clearInputs()
+  }
 
+  clearInputs = () => {
+    document.getElementById("nameInput").value = ""
+    document.getElementById("dateInput").value = ""
+    document.getElementById("timeInput").value = ""
+    document.getElementById("numberInput").value = ""
   }
 
   render() {
