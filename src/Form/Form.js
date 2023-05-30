@@ -30,11 +30,11 @@ class Form extends Component {
   render() {
     return (
       <form className="form" onSubmit={event => this.handleSubmit(event)}>
-        <input id="nameInput" type="text" placeholder="Name" onChange={event => this.setState({name: event.target.value})}/>
-        <input id="dateInput" type="text" placeholder="Date (mm/dd)" onChange={event => this.setState({date: event.target.value})}/>
-        <input id="timeInput" type="text" placeholder="Time" onChange={event => this.setState({time: event.target.value})}/>
-        <input id="numberInput" type="number" placeholder="Number of guests" onChange={event => this.setState({number: event.target.value})}/>
-        <button type="submit">Make Reservaion</button>
+        <input className="name-input" id="nameInput" type="text" placeholder="Name" onChange={event => this.setState({name: event.target.value})}/>
+        <input className="date-input" id="dateInput" type="text" placeholder="Date (mm/dd)" onChange={event => this.setState({date: event.target.value})}/>
+        <input className="time-input" id="timeInput" type="text" placeholder="Time" onChange={event => this.setState({time: event.target.value})}/>
+        <input className="number-input" id="numberInput" type="number" placeholder="Number of guests" onChange={event => this.setState({number: event.target.value})}/>
+        <button className="submit-button" type="submit">Make Reservaion</button>
       </form>
     )
   }
