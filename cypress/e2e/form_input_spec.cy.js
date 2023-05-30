@@ -6,7 +6,6 @@ describe('Form Input', () => {
     })
     .intercept("POST", "http://localhost:3001/api/v1/reservations", {
       statusCode: 201,
-      // fixture: "./post.json",
       body: {
         id: 1685467070947,
         name: "Chad",
