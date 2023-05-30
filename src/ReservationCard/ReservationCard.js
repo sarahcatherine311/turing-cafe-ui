@@ -8,7 +8,7 @@ const ReservationCard = ({ reservationInfo, deleteReservation }) => {
       <p className="reservation-date">{reservationInfo.date}</p>
       <p className="reservation-time">{reservationInfo.time}</p>
       <p className="reservation-number">{reservationInfo.number}</p>
-      <button onClick={event => deleteReservation(reservationInfo.id)}>Cancel</button>
+      <button className="delete-button" onClick={event => deleteReservation(reservationInfo.id)}>Cancel</button>
     </div>
   )
 }
