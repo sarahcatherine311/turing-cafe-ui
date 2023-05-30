@@ -46,7 +46,6 @@ class App extends Component {
 
   deleteReservation = (id) => {
     const newReservations = this.state.reservations.filter(reservation => reservation.id !== id)
-    console.log(newReservations, id)
     this.setState({
       reservations: newReservations
     })
