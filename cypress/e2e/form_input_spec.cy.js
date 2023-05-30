@@ -4,6 +4,17 @@ describe('Form Input', () => {
       statusCode: 200,
       fixture: "./reservations.json"
     })
+    .intercept("POST", "http://localhost:3001/api/v1/reservations", {
+      statusCode: 201,
+      // fixture: "./post.json",
+      body: {
+        id: 1685467070947,
+        name: "Chad",
+        date: "05/24",
+        time: "7:30",
+        number: 1
+      }
+    })
     .visit("http://localhost:3000/")
   })
   
@@ -27,6 +38,6 @@ describe('Form Input', () => {
     .get(".reservation-name").last().contains("Chad")
     .get(".reservation-date").last().contains("05/24")
     .get(".reservation-time").last().contains("7:30")
-    .get(".reservation-number").last().contains("2")
+    .get(".reservation-number").last().contains("1")
   })
 })

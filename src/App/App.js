@@ -27,9 +27,8 @@ class App extends Component {
       }
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => this.setState({reservations: [...this.state.reservations, data]}))
     .catch(error => console.log(error))
-
   }
 
   addReservation = (name, date, time, number, event) => {
@@ -42,9 +41,6 @@ class App extends Component {
       number: parseInt(number),
     }
     this.postReservation(newReservation)
-    fetchData()
-      .then(data => this.setState({reservations: data}))
-      .catch(error => console.log(error))
     this.clearInputs()
   }
 
